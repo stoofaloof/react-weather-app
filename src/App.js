@@ -1,20 +1,18 @@
+import React from "react";
 import "./App.css";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p>This project was coded by Stephanie Chow and is</p>
+      <a
+        className="Github-link"
+        href="https://github.com/stoofaloof/react-weather-app"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        open-sourced on GitHub
+      </a>
     </div>
   );
 }
-
-export default App;
