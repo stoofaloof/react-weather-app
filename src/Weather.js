@@ -22,9 +22,9 @@ export default function Weather() {
           </div>
         </div>
       </form>
-      <h1>Toronto, Canada</h1>
+      <h1>Toronto</h1>
       <ul className="TopHeader">
-        <li>Saturday 10:27 PM</li>
+        <li>Sunday, August 8, 2021 10:27 PM</li>
         <li>Cloudy</li>
       </ul>
       <div className="row">
