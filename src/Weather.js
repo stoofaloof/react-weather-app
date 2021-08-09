@@ -1,48 +1,69 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import WeatherInfo from "./WeatherInfo";
 import "./Weather.css";
 
-export default function Weather() {
-  return (
-    <div className="Weather">
-      <form>
-        <div className="row">
-          <div className="col-9">
-            <input
-              type="search"
-              placeholder="Enter a city"
-              className="form-control"
-            />
+export default function Weather(props) {
+  const [weatherData, setWeatherData] = useState({});
+  const [ready, setReady] = useState(false);
+  const [city, setCity] = useState(props.defaultCity);
+
+  function apiResponse(response) {
+    setWeatherData({
+      temperature: Math.round(response.data.main.temp),
+      description: response.data.weather[0].description,
+      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      humidity: response.data.main.humidity,
+      wind: Math.round(response.data.wind.speed * 3.6),
+      city: response.data.name,
+    });
+
+    setReady(true);
+  }
+
+  function submitCity(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function cityName(event) {
+    setCity(event.target.value);
+  }
+
+  function search() {
+    const apiKey = "5c1e7eee50bb2935f340cf0e657b8b02";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?id=${city}&appid=${apiKey}&units=metric`;
+
+    axios.get(apiUrl).then(apiResponse);
+  }
+
+  if (ready) {
+    return (
+      <div className="Weather">
+        <form onSubmit={submitCity}>
+          <div className="row">
+            <div className="col-9">
+              <input
+                type="search"
+                placeholder="Enter a city"
+                className="form-control"
+                onChange={cityName}
+              />
+            </div>
+            <div className="col-3 d-grid gap-2 d-md-flex justify-content-md-end">
+              <input
+                type="submit"
+                value="Search"
+                className="btn btn-primary me-md-1"
+              />
+            </div>
           </div>
-          <div className="col-3 d-grid gap-2 d-md-flex justify-content-md-end">
-            <input
-              type="submit"
-              value="Search"
-              className="btn btn-primary me-md-1"
-            />
-          </div>
-        </div>
-      </form>
-      <h1>Toronto</h1>
-      <ul className="TopHeader">
-        <li>Sunday, August 8, 2021 10:27 PM</li>
-        <li>Cloudy</li>
-      </ul>
-      <div className="row">
-        <div className="col-6">
-          <img
-            src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
-            alt="cloudy"
-          />
-          <div className="temperature">22°C</div>
-        </div>
-        <div className="col-6">
-          <ul>
-            <li>Precipitation: 15%</li>
-            <li>Humidity: 88%</li>
-            <li>Wind: 10 km/h</li>
-          </ul>
-        </div>
+        </form>
+        <WeatherInfo data={weatherData} />
       </div>
-    </div>
-  );
+    );
+  } else {
+    search();
+    return "Loading...";
+  }
 }
