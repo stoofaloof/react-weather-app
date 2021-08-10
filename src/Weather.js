@@ -16,6 +16,9 @@ export default function Weather(props) {
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed * 3.6),
       city: response.data.name,
+      country: response.data.sys.country,
+      feels: Math.round(response.data.main.feels_like),
+      date: new Date(response.data.dt * 1000),
     });
 
     setReady(true);
@@ -50,12 +53,10 @@ export default function Weather(props) {
                 onChange={cityName}
               />
             </div>
-            <div className="col-3 d-grid gap-2 d-md-flex justify-content-md-end">
-              <input
-                type="submit"
-                value="Search"
-                className="btn btn-primary me-md-1"
-              />
+            <div className="col-3 d-grid gap-2 d-md-flex justify-content-md-end ">
+              <button type="submit" className="btn btn-primary me-md-1">
+                Search
+              </button>
             </div>
           </div>
         </form>

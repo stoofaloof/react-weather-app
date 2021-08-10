@@ -1,4 +1,5 @@
 .Weather {
+  background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
   border: 1px solid rgba(128, 128, 128, 0.555);
   border-radius: 10px;
   margin: 50px 0px 0px 0px;
@@ -6,13 +7,18 @@
 
 .TopHeader {
   padding: 0px 0px 0px 22px;
+  text-transform: capitalize;
 }
 
 .temperature {
   display: inline;
   font-size: 50px;
   font-weight: bold;
-  padding: 20px 0px 0px 10px;
+  padding: 0px 0px 0px 10px;
+}
+
+.sideList {
+  font-size: 15px;
 }
 
 form {
