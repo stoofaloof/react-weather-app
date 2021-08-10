@@ -1,4 +1,5 @@
 import React from "react";
+import CurrentDate from "./CurrentDate";
 
 export default function WeatherInfo(props) {
   return (
@@ -7,7 +8,9 @@ export default function WeatherInfo(props) {
         {props.data.city}, <small>{props.data.country}</small>
       </h1>
       <ul className="TopHeader">
-        <li>Sunday, August 8, 2021 10:27 PM</li>
+        <li>
+          <CurrentDate date={props.data.date} />
+        </li>
         <li>{props.data.description}</li>
       </ul>
       <div className="row">
