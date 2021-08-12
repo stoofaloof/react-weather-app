@@ -10,7 +10,7 @@ export default function Weather(props) {
 
   function apiResponse(response) {
     setWeatherData({
-      temperature: Math.round(response.data.main.temp),
+      temperature: response.data.main.temp,
       description: response.data.weather[0].description,
       icon: response.data.weather[0].icon,
       humidity: response.data.main.humidity,
