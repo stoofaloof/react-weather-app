@@ -32,7 +32,7 @@ export default function WeatherTemperature(props) {
     return (
       <div className="WeatherTemperature">
         <span className="temperature">
-          {(Math.round(props.temp) * 9) / 5 + 32}{" "}
+          {Math.round((props.temp * 9) / 5 + 32)}{" "}
         </span>
         <span className="celcius">
           <a href="" onClick={showCelcius}>

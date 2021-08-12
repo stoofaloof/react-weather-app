@@ -2,6 +2,7 @@ import React from "react";
 import CurrentDate from "./CurrentDate";
 import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
+import SideBar from "./SideBar";
 
 export default function WeatherInfo(props) {
   return (
@@ -21,11 +22,7 @@ export default function WeatherInfo(props) {
           <WeatherTemperature temp={props.data.temperature} />
         </div>
         <div className="col-6 sideList">
-          <ul>
-            <li>Feels Like: {props.data.feels}°C</li>
-            <li>Humidity: {props.data.humidity}%</li>
-            <li>Wind: {props.data.wind} km/h</li>
-          </ul>
+          <SideBar data={props.data} />
         </div>
       </div>
     </div>
