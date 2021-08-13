@@ -12,6 +12,7 @@ export default function Weather(props) {
   function apiResponse(response) {
     setWeatherData({
       temperature: response.data.main.temp,
+      coord: response.data.coord,
       description: response.data.weather[0].description,
       icon: response.data.weather[0].icon,
       humidity: response.data.main.humidity,
@@ -62,7 +63,7 @@ export default function Weather(props) {
           </div>
         </form>
         <WeatherInfo data={weatherData} />
-        <WeatherForecast />
+        <WeatherForecast coord={weatherData.coord} />
       </div>
     );
   } else {
