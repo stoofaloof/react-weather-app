@@ -17,8 +17,9 @@
   padding: 0px 0px 0px 20px;
 }
 
-.sideList {
+.SideBar {
   font-size: 15px;
+  padding: 0px 0px 0px 70px;
 }
 
 form {
@@ -34,7 +35,7 @@ ul {
   list-style: none;
 }
 
-canvas {
+.currentIcon {
   float: left;
   padding: 10px 10px 0px 20px;
 }

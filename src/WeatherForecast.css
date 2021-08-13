@@ -1,0 +1,20 @@
+.WeatherForecast {
+  text-align: center;
+}
+
+.forecastIcon {
+  padding: 8px 0px 0px 0px;
+}
+
+.forecastTemp {
+  padding: 0px 0px 10px 0px;
+}
+
+.Weekday {
+  font-weight: bold;
+  padding: 10px 0px 0px 0px;
+}
+
+.maxTemp {
+  font-weight: bold;
+}

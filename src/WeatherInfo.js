@@ -18,10 +18,12 @@ export default function WeatherInfo(props) {
       </ul>
       <div className="row">
         <div className="col-6">
-          <WeatherIcon code={props.data.icon} />
+          <div className="currentIcon">
+            <WeatherIcon code={props.data.icon} size={70} />
+          </div>
           <WeatherTemperature temp={props.data.temperature} />
         </div>
-        <div className="col-6 sideList">
+        <div className="col-6 SideBar">
           <SideBar data={props.data} />
         </div>
       </div>
