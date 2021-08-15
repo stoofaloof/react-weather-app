@@ -1,12 +1,13 @@
 import React from "react";
 import WeatherIcon from "./WeatherIcon";
+import ForecastDay from "./ForecastDay";
 
 export default function ForecastInfo(props) {
   return (
     <div className="WeatherForecast">
       <div className="row">
         <div className="col">
-          <div className="Weekday">Thu</div>
+          <ForecastDay daycode={props.data[0].dt} />
           <div className="forecastIcon">
             <WeatherIcon code={props.data[0].weather[0].icon} size={40} />
           </div>
